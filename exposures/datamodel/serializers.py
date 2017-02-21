@@ -2,7 +2,8 @@ from flask_restplus import fields
 from exposures.api.restplus import api
 
 
-exposure_score = api.model('Exposure Score', {
-    'id': fields.String(readOnly=True, description='Exposure unique ID'),
-    'type': fields.String(readOnly=True, description='Type of association, e.g. gene-phenotype')
+exposure_result = api.model('Exposure', {
+    'stime': fields.String(readOnly=True, description='Starting time for the given measure'),
+    'etime': fields.String(readOnly=True, description='Ending time for the given measure'),
+    'value': fields.String(readOnly=True, description='Numerical or categorical depending upon type of value being requested'),
 })

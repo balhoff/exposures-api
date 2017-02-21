@@ -2,7 +2,7 @@ import logging
 
 from flask import request
 from flask_restplus import Resource
-from exposures.datamodel.serializers import exposure_score
+from exposures.datamodel.serializers import exposure_result
 from exposures.api.restplus import api
 import pysolr
 
@@ -47,8 +47,8 @@ score_parser.add_argument('tscore', type='string', help="The exposure score type
 class ExposureQuery(Resource):
 
     @api.expect(value_parser)
-    @api.marshal_list_with(exposure_score)
-    @api.doc(id='getExposureValue', description="Retrieve the computed exposure value for a given environmental exposure factor, time period, and set of locations")
+    @api.marshal_list_with(exposure_result)
+    @api.doc(id='getExposureValue', description="Retrieve the computed exposure value for a given environmental exposure factor, time period, and set of locations.")
     def get(self, query):
         """
         Get exposure value for a given environmental factor
@@ -61,8 +61,8 @@ class ExposureQuery(Resource):
 class ExposureQuery(Resource):
 
     @api.expect(score_parser)
-    @api.marshal_list_with(exposure_score)
-    @api.doc(id='getExposureScore', description="Retrieve the computed exposure score for a given environmental exposure factor, time period, and set of locations")
+    @api.marshal_list_with(exposure_result)
+    @api.doc(id='getExposureScore', description="Retrieve the computed exposure score for a given environmental exposure factor, time period, and set of locations.")
     def get(self, query):
         """
         Get exposure score for a given environmental factor
