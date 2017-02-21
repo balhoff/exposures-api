@@ -7,10 +7,10 @@ from sqlalchemy.orm.exc import NoResultFound
 
 log = logging.getLogger(__name__)
 
-api = Api(version='0.1.1', title='Exposures API',
+api = Api(version='0.1.1', title='Exposure API',
           license='MIT',
-          contact='jbalhoff@rti.org',
-          description='API for environmental exposures.\n\n __Source:__ https://renci.org')
+          contact='help@renci.org',
+          description='API for environmental exposure models for NIH Data Translator program.\n\n __Source:__ https://renci.org')
 
 
 @api.errorhandler
